@@ -17,6 +17,7 @@
         <jackson.version>2.9.4</jackson.version>
         <junit.version>5.0.1</junit.version>
         <servlet-api.version>4.0.0</servlet-api.version>
+        <reactor-ipc.version>0.6.2.RELEASE</reactor-ipc.version>
     </properties>
 
     <dependencies>
@@ -66,7 +67,11 @@
             <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>io.projectreactor.ipc</groupId>
+            <artifactId>reactor-netty</artifactId>
+            <version>${reactor-ipc.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -189,6 +194,18 @@
 
 -->
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-bom</artifactId>
+                <version>Bismuth-SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <repositories>
         <repository>
             <id>central</id>
@@ -219,6 +236,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
-
 </project>
